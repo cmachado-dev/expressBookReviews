@@ -1,0 +1,9 @@
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X POST http://127.0.0.1:5000/customer/login -H "Content-Type: application/json" --data-binary "@scripts/payloads/register.json" -c .evidence-session.cookies --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Login realizado com sucesso.",
+  "username": "cristiano_demo"
+}
+HTTP 200

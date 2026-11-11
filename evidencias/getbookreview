@@ -1,0 +1,6 @@
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/review/1 --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{}
+HTTP 200

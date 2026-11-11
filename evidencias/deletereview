@@ -1,0 +1,10 @@
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X DELETE http://127.0.0.1:5000/customer/auth/review/1 -b .evidence-session.cookies --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Avaliacao excluida com sucesso.",
+  "isbn": "1",
+  "reviews": {}
+}
+HTTP 200

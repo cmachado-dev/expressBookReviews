@@ -1,0 +1,12 @@
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/author/Chinua%20Achebe --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "1": {
+    "author": "Chinua Achebe",
+    "title": "Things Fall Apart",
+    "reviews": {}
+  }
+}
+HTTP 200

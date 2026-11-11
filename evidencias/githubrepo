@@ -1,0 +1,9 @@
+Comando (PowerShell):
+curl.exe -fsSL --max-time 20 https://api.github.com/repos/cmachado-dev/expressBookReviews | ConvertFrom-Json | Select-Object full_name,fork,@{Name="parent";Expression={$_.parent.full_name}} | ConvertTo-Json
+
+Saida real:
+{
+    "full_name":  "cmachado-dev/expressBookReviews",
+    "fork":  true,
+    "parent":  "ibm-developer-skills-network/expressBookReviews"
+}

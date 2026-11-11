@@ -1,0 +1,210 @@
+PERGUNTA 1 - githubrepo
+
+Comando (PowerShell):
+curl.exe -fsSL --max-time 20 https://api.github.com/repos/cmachado-dev/expressBookReviews | ConvertFrom-Json | Select-Object full_name,fork,@{Name="parent";Expression={$_.parent.full_name}} | ConvertTo-Json
+
+Saida real:
+{
+    "full_name":  "cmachado-dev/expressBookReviews",
+    "fork":  true,
+    "parent":  "ibm-developer-skills-network/expressBookReviews"
+}
+
+
+========================================================================
+
+PERGUNTA 2 - getallbooks
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/ --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "1": {
+    "author": "Chinua Achebe",
+    "title": "Things Fall Apart",
+    "reviews": {}
+  },
+  "2": {
+    "author": "Hans Christian Andersen",
+    "title": "Fairy tales",
+    "reviews": {}
+  },
+  "3": {
+    "author": "Dante Alighieri",
+    "title": "The Divine Comedy",
+    "reviews": {}
+  },
+  "4": {
+    "author": "Unknown",
+    "title": "The Epic Of Gilgamesh",
+    "reviews": {}
+  },
+  "5": {
+    "author": "Unknown",
+    "title": "The Book Of Job",
+    "reviews": {}
+  },
+  "6": {
+    "author": "Unknown",
+    "title": "One Thousand and One Nights",
+    "reviews": {}
+  },
+  "7": {
+    "author": "Unknown",
+    "title": "Njál's Saga",
+    "reviews": {}
+  },
+  "8": {
+    "author": "Jane Austen",
+    "title": "Pride and Prejudice",
+    "reviews": {}
+  },
+  "9": {
+    "author": "Honoré de Balzac",
+    "title": "Le Père Goriot",
+    "reviews": {}
+  },
+  "10": {
+    "author": "Samuel Beckett",
+    "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+    "reviews": {}
+  }
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 3 - getbooksbyISBN
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/isbn/1 --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "author": "Chinua Achebe",
+  "title": "Things Fall Apart",
+  "reviews": {}
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 4 - getbooksbyauthor
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/author/Chinua%20Achebe --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "1": {
+    "author": "Chinua Achebe",
+    "title": "Things Fall Apart",
+    "reviews": {}
+  }
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 5 - getbooksbytitle
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/title/Things%20Fall%20Apart --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "1": {
+    "author": "Chinua Achebe",
+    "title": "Things Fall Apart",
+    "reviews": {}
+  }
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 6 - getbookreview
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 http://127.0.0.1:5000/review/1 --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 7 - register
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X POST http://127.0.0.1:5000/register -H "Content-Type: application/json" --data-binary "@scripts/payloads/register.json" --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Usuario cadastrado com sucesso."
+}
+HTTP 201
+
+
+========================================================================
+
+PERGUNTA 8 - login
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X POST http://127.0.0.1:5000/customer/login -H "Content-Type: application/json" --data-binary "@scripts/payloads/register.json" -c .evidence-session.cookies --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Login realizado com sucesso.",
+  "username": "cristiano_demo"
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 9 - reviewadded
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X PUT http://127.0.0.1:5000/customer/auth/review/1 -b .evidence-session.cookies -H "Content-Type: application/json" --data-binary "@scripts/payloads/review.json" --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Avaliacao adicionada com sucesso.",
+  "isbn": "1",
+  "reviews": {
+    "cristiano_demo": "Excelente livro, com uma historia envolvente."
+  }
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 10 - deletereview
+
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X DELETE http://127.0.0.1:5000/customer/auth/review/1 -b .evidence-session.cookies --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Avaliacao excluida com sucesso.",
+  "isbn": "1",
+  "reviews": {}
+}
+HTTP 200
+
+
+========================================================================
+
+PERGUNTA 11 - URL PUBLICA DO ARQUIVO general.js
+
+https://github.com/cmachado-dev/expressBookReviews/blob/main/final_project/router/general.js
+
+A URL so deve ser enviada depois que os arquivos forem publicados no fork.

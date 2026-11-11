@@ -1,0 +1,12 @@
+Comando (execute na pasta final_project):
+curl.exe -sS --max-time 20 -X PUT http://127.0.0.1:5000/customer/auth/review/1 -b .evidence-session.cookies -H "Content-Type: application/json" --data-binary "@scripts/payloads/review-update.json" --write-out "\nHTTP %{http_code}\n"
+
+Saida real:
+{
+  "message": "Avaliacao atualizada com sucesso.",
+  "isbn": "1",
+  "reviews": {
+    "cristiano_demo": "Excelente livro. Recomendo a leitura pela riqueza cultural."
+  }
+}
+HTTP 200

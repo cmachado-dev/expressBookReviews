@@ -1,4 +1,9 @@
-# Distribution / packaging
-node_modules
-
-
+node_modules/
+.env
+.env.*
+!.env.example
+*.cookies
+*.log
+.DS_Store
+PARA_ENVIAR_GITHUB/
+PARA_ENVIAR_GITHUB.zip
